@@ -14,11 +14,13 @@
     <ImageView
         android:src="@drawable/logo_flisol"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="0dp"
+        android:layout_weight="0.4"/>
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="0.6">
 
         <LinearLayout
             android:id="@+id/email_login_form"
