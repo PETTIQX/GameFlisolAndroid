@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import estudo.android.gameflisolandroid.R;
-import estudo.android.gameflisolandroid.models.Pergunta;
+import estudo.android.gameflisolandroid.models.Questionario;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +27,7 @@ public class PerguntasFragment extends Fragment {
 
 
     private OnFragmentInteractionListener mListener;
-    private List<Pergunta> perguntas;
+    private List<Questionario> questionarios;
 
     public PerguntasFragment() {
         // Required empty public constructor
@@ -37,15 +37,13 @@ public class PerguntasFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment PerguntasFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PerguntasFragment newInstance(List<Pergunta> perguntas) {
+    public static PerguntasFragment newInstance(List<Questionario> questionarios) {
         PerguntasFragment fragment = new PerguntasFragment();
         Bundle args = new Bundle();
-        args.putParcelableArrayList("perguntas", (ArrayList<? extends Parcelable>) perguntas);
+        args.putParcelableArrayList("questionarios", (ArrayList<? extends Parcelable>) questionarios);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,7 +52,7 @@ public class PerguntasFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            this.perguntas = getArguments().getParcelableArrayList("perguntas");
+            this.questionarios = getArguments().getParcelableArrayList("questionarios");
         }
     }
 
