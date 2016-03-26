@@ -1,7 +1,9 @@
-package estudo.android.gameflisolandroid;
+package estudo.android.gameflisolandroid.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import estudo.android.gameflisolandroid.R;
 
 public class LoginActivity extends AppCompatActivity {
 
