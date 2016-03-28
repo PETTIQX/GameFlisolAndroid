@@ -1,7 +1,53 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="200dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+
+        android:baselineAligned="false">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:orientation="vertical">
+            <TextView
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:text="Título teste"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/txtDescricao"
+                android:text="Um texto grande que não diz nada só pra servir de placeholder para
+                uma possível descrição"
+                android:gravity="center_vertical|left"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/imgStatusDaQuestao"
+                android:layout_width="118dp"
+                android:layout_height="118dp"
+                android:src="@drawable/ic_close_black_18dp"
+                />
+
+
+    </LinearLayout>
+    
 
 
 </android.support.v7.widget.CardView>

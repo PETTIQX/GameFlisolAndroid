@@ -27,6 +27,7 @@ public class PerguntaAdapter extends RecyclerView.Adapter<PerguntaAdapter.Pergun
     class PerguntaViewHolder extends RecyclerView.ViewHolder
     {
 
+
         public PerguntaViewHolder(View itemView) {
             super(itemView);
         }
