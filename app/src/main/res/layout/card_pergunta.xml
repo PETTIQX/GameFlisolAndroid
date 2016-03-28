@@ -16,6 +16,7 @@
             android:layout_weight="0.7"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/txtTitulo"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:text="Título teste"
@@ -47,7 +48,5 @@
 
 
     </LinearLayout>
-    
-
 
 </android.support.v7.widget.CardView>
