@@ -25,7 +25,11 @@
         <activity
             android:name=".activities.MenuPrincipal"
             android:label="@string/title_activity_menu_principal"
-            android:theme="@style/AppThemeNoBar"></activity>
+            android:theme="@style/AppThemeNoBar" />
+        <activity
+            android:name=".activities.QuestaoActivity"
+            android:label="@string/title_activity_questao"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
