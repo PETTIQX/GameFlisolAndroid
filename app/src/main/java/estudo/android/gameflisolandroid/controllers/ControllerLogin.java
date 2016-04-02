@@ -40,7 +40,9 @@ public class ControllerLogin {
             RequestBody body = RequestBody.create(JSON, json.toString());
 
             Participante participante = serviceLogin.login(body);
-
+            if(participante == null){
+                return null;
+            }
             //todo sharedPreference token
 
             PreferencesUtil.setString(context, Participante.TOKEN, participante.getToken());

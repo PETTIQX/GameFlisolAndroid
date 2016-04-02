@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import estudo.android.gameflisolandroid.models.Participante;
 import estudo.android.gameflisolandroid.service.parse.ParseJsonObject;
+import okhttp3.HttpUrl;
 import okhttp3.RequestBody;
 
 /**
@@ -18,8 +19,11 @@ public class ServiceLogin {
     private static final String FIELD_TOKEN = "token";
     private HttpClient httpClient;
 
-    public static final String SERVER_URL = "";
-    public static final String SERVER_URL_LOGIN = "";
+    public static final String SERVER_URL = "itapipoca.quixada.ufc.br";
+    public static final String SCHEME = "http";
+    public static final int SERVER_PORT = 6008;
+
+    public static final String SERVER_URL_LOGIN = "public/authenticate";
 
     public ServiceLogin(){
         this.httpClient = new HttpClient();
@@ -27,7 +31,10 @@ public class ServiceLogin {
 
     public Participante login(RequestBody params){
 
-        String resposta = httpClient.postRequest(SERVER_URL_LOGIN, params);
+
+        HttpUrl httpUrl = new HttpUrl.Builder().host(SERVER_URL).scheme(SCHEME).port(SERVER_PORT).addPathSegments(SERVER_URL_LOGIN).build();
+
+        String resposta = httpClient.postRequest(httpUrl, params);
 
         if(resposta == null){
             return null;

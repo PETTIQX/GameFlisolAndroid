@@ -22,7 +22,7 @@ public class HttpClient {
         client = new OkHttpClient();
     }
 
-    public String postRequest(String url, RequestBody params) {
+    public String postRequest(HttpUrl url, RequestBody params) {
 
         String userAgent = System.getProperty("http.agent");
 
@@ -31,7 +31,6 @@ public class HttpClient {
         }
 
         Request.Builder builder = new Request.Builder().url(url).addHeader("User-Agent", userAgent);
-
         if(params != null){
             builder = builder.post(params);
         }
