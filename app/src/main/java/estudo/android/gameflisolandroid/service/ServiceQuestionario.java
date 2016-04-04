@@ -1,5 +1,7 @@
 package estudo.android.gameflisolandroid.service;
 
+import android.support.v4.util.Pair;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,12 +34,12 @@ public class ServiceQuestionario {
         this.httpClient = new HttpClient();
     }
 
-    public List<Questionario> getQuestionarios(RequestBody params) throws FalhaServidorException {
+    public List<Questionario> getQuestionarios(RequestBody params, Pair<String,String> headerAuth) throws FalhaServidorException {
 
         HttpUrl httpUrl = new HttpUrl.Builder().host(SERVER_URL).scheme(SCHEME).
                 port(SERVER_PORT).addPathSegments(SERVER_URL_QUESTIONARIO).build();
 
-        String resposta = httpClient.postRequest(httpUrl, params);
+        String resposta = httpClient.postRequest(httpUrl, params, headerAuth);
 
         if(resposta == null){
             return null;

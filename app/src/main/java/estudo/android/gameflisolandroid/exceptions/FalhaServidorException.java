@@ -5,6 +5,9 @@ package estudo.android.gameflisolandroid.exceptions;
  */
 public class FalhaServidorException extends Exception{
 
+    //500 falha servidor
+    //
+
     private String error;
     private int code;
 
