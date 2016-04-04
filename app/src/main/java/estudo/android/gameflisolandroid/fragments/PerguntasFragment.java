@@ -43,7 +43,7 @@ public class PerguntasFragment extends Fragment {
     public static PerguntasFragment newInstance(List<Questionario> questionarios) {
         PerguntasFragment fragment = new PerguntasFragment();
         Bundle args = new Bundle();
-        args.putParcelableArrayList("questionarios", (ArrayList<? extends Parcelable>) questionarios);
+        //args.putParcelableArrayList("questionarios", (ArrayList<? extends Parcelable>) questionarios);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,7 +52,7 @@ public class PerguntasFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            this.questionarios = getArguments().getParcelableArrayList("questionarios");
+            //this.questionarios = getArguments().getParcelableArrayList("questionarios");
         }
     }
 

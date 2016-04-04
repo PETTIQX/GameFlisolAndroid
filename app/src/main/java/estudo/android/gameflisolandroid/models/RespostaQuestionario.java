@@ -15,6 +15,7 @@ public class RespostaQuestionario {
     private Questao questao;
     private int resposta;
     private boolean correta;
+    private long tempo;
 
     public Questao getQuestao() {
         return questao;
@@ -46,5 +47,13 @@ public class RespostaQuestionario {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public long getTempo() {
+        return tempo;
+    }
+
+    public void setTempo(long tempo) {
+        this.tempo = tempo;
     }
 }

@@ -5,13 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-/**
- * Created by jordy on 26/03/16.
- */
 public class TabFragmentPageAdapter extends FragmentPagerAdapter {
 
-    private final int PAGE_COUNT = 2;
-    private final String[] tabsNames = {"Perguntas","Pontuação"};
+    private final int PAGE_COUNT = 3;
+    private final String[] tabsNames = {"Perguntas","Pontuação","Ranking Geral"};
     private Context context;
 
     public TabFragmentPageAdapter(Context context,FragmentManager fm) {
@@ -21,7 +18,7 @@ public class TabFragmentPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return PageFragment.newInstance(position);
     }
 
     @Override
