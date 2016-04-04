@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import estudo.android.gameflisolandroid.R;
 import estudo.android.gameflisolandroid.controllers.ControllerLogin;
+import estudo.android.gameflisolandroid.exceptions.FalhaServidorException;
 import estudo.android.gameflisolandroid.models.Participante;
 import estudo.android.gameflisolandroid.util.PreferencesUtil;
 
@@ -75,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
     private class AsyncTaskLogin extends AsyncTask<String,Void,Participante>{
 
         private ControllerLogin controllerLogin;
+        private FalhaServidorException falhaServidorException;
 
         @Override
         protected void onPreExecute() {
@@ -88,7 +91,13 @@ public class LoginActivity extends AppCompatActivity {
                 return null;
             }
 
-            Participante participante = controllerLogin.login(params[0], getBaseContext());
+            Participante participante = null;
+            try {
+                participante = controllerLogin.login(params[0], getBaseContext());
+            } catch (FalhaServidorException e) {
+                e.printStackTrace();
+                falhaServidorException = e;
+            }
 
             return participante;
         }
@@ -99,6 +108,10 @@ public class LoginActivity extends AppCompatActivity {
                 //Toast.makeText(LoginActivity.this, participante.getEmail(), Toast.LENGTH_SHORT).show();
                 isSigned();
             }else{
+                if(falhaServidorException != null){
+                    Log.i(LoginActivity.class.toString(), falhaServidorException.getError());
+                }
+
                 Toast.makeText(LoginActivity.this, "Número de inscrição inexistente!", Toast.LENGTH_SHORT).show();
             }
 

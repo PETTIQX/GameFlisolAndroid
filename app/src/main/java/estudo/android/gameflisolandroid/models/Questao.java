@@ -8,17 +8,27 @@ import java.util.List;
  * Created by jordy on 26/03/16.
  */
 public class Questao {
-    private long _id;
+
+    public static final String _ID = "_id";
+    public static final String ENUNCIADO = "enunciado";
+    public static final String OPCOES = "opcoes";
+    public static final String OPCAO_ID = "idOpcao";
+    public static final String OPCAO_DESCRICAO = "descricao";
+    public static final String RESPOSTA_CORRETA = "respostaCorreta";
+    public static final String PONTUACAO = "pontuacao";
+
+
+    private String _id;
     private String enunciado;
     private List<Pair<Long,String>> opcoes;
     private Pair<Long,String> respostaCorreta;
     private int pontuacao;
 
-    public long get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(long _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

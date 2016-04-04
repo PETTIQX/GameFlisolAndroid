@@ -8,34 +8,57 @@ import java.util.List;
 /**
  * Created by jordy on 26/03/16.
  */
-public class Questionario implements Parcelable {
+public class Questionario{
 
-    private String enuciado;
+    public static final String _ID = "_id";
+    public static final String SALA = "sala";
+    public static final String SENHA = "senha";
+    public static final String QUESTOES = "questoes";
+    public static final String SLOT_HORARIO = "slotHorario";
+
+    private String _id;
     private String sala;
     private String senha;
     private List<Questao> questoes;
+    private List<Integer> slotHorario;
 
-    protected Questionario(Parcel in) {
+    public String get_id() {
+        return _id;
     }
 
-    public static final Creator<Questionario> CREATOR = new Creator<Questionario>() {
-        @Override
-        public Questionario createFromParcel(Parcel in) {
-            return new Questionario(in);
-        }
-
-        @Override
-        public Questionario[] newArray(int size) {
-            return new Questionario[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public String getSala() {
+        return sala;
+    }
+
+    public void setSala(String sala) {
+        this.sala = sala;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public List<Questao> getQuestoes() {
+        return questoes;
+    }
+
+    public void setQuestoes(List<Questao> questoes) {
+        this.questoes = questoes;
+    }
+
+    public List<Integer> getSlotHorario() {
+        return slotHorario;
+    }
+
+    public void setSlotHorario(List<Integer> slotHorario) {
+        this.slotHorario = slotHorario;
     }
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import estudo.android.gameflisolandroid.exceptions.FalhaServidorException;
 import estudo.android.gameflisolandroid.models.Participante;
 import estudo.android.gameflisolandroid.service.ServiceLogin;
 import estudo.android.gameflisolandroid.util.PreferencesUtil;
@@ -26,7 +27,7 @@ public class ControllerLogin {
         serviceLogin = new ServiceLogin();
     }
 
-    public Participante login(String numeroInscricao, Context context){
+    public Participante login(String numeroInscricao, Context context) throws FalhaServidorException {
 
         if(numeroInscricao == null){
             return null;
@@ -35,7 +36,7 @@ public class ControllerLogin {
         try {
 
             JSONObject json = new JSONObject();
-            json.put("numeroInscricao",numeroInscricao);
+            json.put(PARAM_NUMERO_INSCRICAO,numeroInscricao);
 
             RequestBody body = RequestBody.create(JSON, json.toString());
 
@@ -43,8 +44,6 @@ public class ControllerLogin {
             if(participante == null){
                 return null;
             }
-            //todo sharedPreference token
-
             PreferencesUtil.setString(context, Participante.TOKEN, participante.getToken());
 
             return participante;

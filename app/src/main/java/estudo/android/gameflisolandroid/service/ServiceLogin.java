@@ -5,6 +5,7 @@ import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import estudo.android.gameflisolandroid.exceptions.FalhaServidorException;
 import estudo.android.gameflisolandroid.models.Participante;
 import estudo.android.gameflisolandroid.service.parse.ParseJsonObject;
 import okhttp3.HttpUrl;
@@ -29,7 +30,7 @@ public class ServiceLogin {
         this.httpClient = new HttpClient();
     }
 
-    public Participante login(RequestBody params){
+    public Participante login(RequestBody params) throws FalhaServidorException {
 
 
         HttpUrl httpUrl = new HttpUrl.Builder().host(SERVER_URL).scheme(SCHEME).port(SERVER_PORT).addPathSegments(SERVER_URL_LOGIN).build();
